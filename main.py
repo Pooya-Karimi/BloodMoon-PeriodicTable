@@ -1012,6 +1012,29 @@ window.resizable(False,False)
 window.title("Periodic_Table")
 window.configure(bg=bg1)
 
+# functions
+def open(element):
+    window2 = tk.Tk()
+    window2.geometry("680x400")
+    window2.resizable(False,False)
+    window2.title(f"Periodic_Table '{element}'")
+    window2.configure(bg=bg1)
+    l1 = tk.Label(window2, text=elements[element]["Basic Info"]["Name"], font=("Arial", 20), bg=bg1, fg="gold").pack(side="top")
+    l15 = tk.Label(window2, text="-"*100, font=("Arial", 20), bg=bg1, fg="dark red").pack(side="top")
+    l2 = tk.Label(window2,text=f"=====Basic Info=====      ====Physical Properties====     ====Atomic Properties====", bg=bg1, fg="#f20707", font=("Arial", 13)).pack(side="top")
+    l3 = tk.Label(window2,text=f"Name: {(elements[element]["Basic Info"]["Name"])}                 Melting Point: {(elements[element]["Physical Properties"]["Melting Point"])}              Electronegativity: {(elements[element]["Atomic Properties"]["Electronegativity"])}    ", fg=fg1, bg=bg1, font=("Arial", 13)).pack(anchor="nw")
+    l4 = tk.Label(window2,text=f"Symbol: {(elements[element]["Basic Info"]["Symbol"])}                          Boiling Point:{(elements[element]["Physical Properties"]["Boiling Point"])}               Ionization Energy: {(elements[element]["Atomic Properties"]["Ionization Energy"])}", fg=fg1, bg=bg1, font=("Arial", 13)).pack(anchor="nw")
+    l5 = tk.Label(window2,text=f"Atomic Number: {(elements[element]["Basic Info"]["Atomic Number"])}               Density:{(elements[element]["Physical Properties"]["Density"])}                    Atomic Radius: {(elements[element]["Atomic Properties"]["Atomic Radius"])}", fg=fg1, bg=bg1, font=("Arial", 13)).pack(anchor="nw")
+    l6 = tk.Label(window2,text=f"Atomic Mass: {(elements[element]["Basic Info"]["Atomic Mass"])}            State at 25°C:{(elements[element]["Physical Properties"]["State at 25°C"])}", fg=fg1, bg=bg1, font=("Arial", 13)).pack(anchor="nw")
+    l7 = tk.Label(window2,text=f"Group: {(elements[element]["Basic Info"]["Group"])}", fg=fg1, bg=bg1, font=("Arial", 13)).pack(anchor="nw")
+    l8 = tk.Label(window2,text=f"Block: {(elements[element]["Basic Info"]["Block"])}", fg=fg1, bg=bg1, font=("Arial", 13)).pack(anchor="nw")
+    l9 = tk.Label(window2,text=f"=====================================Uses=========================================", bg=bg1, fg="#f20707", font=("Arial", 13)).pack(side="top")
+    l10 = tk.Label(window2,text=f"{(elements[element]["Uses"])}", fg=fg1, bg=bg1, font=("Arial", 13)).pack(anchor="nw")
+    l11 = tk.Label(window2,text=f"===================================Fun Fact=======================================", bg=bg1, fg="#f20707", font=("Arial", 13)).pack(side="top")
+    l12 = tk.Label(window2,text=f"{(elements[element]["Fun Fact"])}", fg=fg1, bg=bg1, font=("Arial", 13)).pack(anchor="nw")
+    l13 = tk.Label(window2,text=f"===================================History========================================", bg=bg1, fg="#f20707", font=("Arial", 13)).pack(side="top")
+    l14 = tk.Label(window2,text=f"{(elements[element]["History"]["Discoverer"])}/{(elements[element]["History"]["Year"])}/{(elements[element]["History"]["Country"])}", fg=fg1, bg=bg1, font=("Arial", 13)).pack(anchor="nw")
+
 # elements button
 for n, b in Group1.items():
     i = tk.Button(window, text=n, width=3, height=1, font="Bold", bg=b, fg="White", activebackground="dark red", activeforeground="#350808", command=lambda s=n: (open(s))).place(x=10, y=x1)
